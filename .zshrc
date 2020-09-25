@@ -169,7 +169,9 @@ precmd() {
 
 prompt_opts=(cr subst percent)
 
-if [[ -f "$ZDOTDIR/.zshrc-local" ]]
-then
-    . "$ZDOTDIR/.zshrc-local"
-fi
+# Global aliases
+alias ls='ls -FG'
+
+platform="$(uname)"
+[[ -f "$ZDOTDIR/.zshrc-$platform" ]] && . "$ZDOTDIR/.zshrc-$platform"
+[[ -f "$ZDOTDIR/.zshrc-local" ]] && . "$ZDOTDIR/.zshrc-local"

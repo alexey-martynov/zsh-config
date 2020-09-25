@@ -1,4 +1,3 @@
-if [[ -f "$ZDOTDIR/.zshenv-local" ]]
-then
-    . "$ZDOTDIR/.zshenv-local"
-fi
+platform="$(uname)"
+[[ -f "$ZDOTDIR/.zshenv-$platform" ]] && . "$ZDOTDIR/.zshenv-$platform"
+[[ -f "$ZDOTDIR/.zshenv-local" ]] && . "$ZDOTDIR/.zshenv-local"
