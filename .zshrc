@@ -165,6 +165,10 @@ prompt_agnoster_main() {
 precmd() {
     vcs_info
     PROMPT='%{%f%b%k%}$(prompt_agnoster_main) '
+    if [[ -n "$PROMPT_COMMAND" ]]
+    then
+        eval "$PROMPT_COMMAND"
+    fi
 }
 
 prompt_opts=(cr subst percent)
